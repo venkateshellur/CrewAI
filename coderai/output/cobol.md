@@ -1,18 +1,26 @@
-Here is the complete content of the Python code along with its output:
-
-```python
-result = []
-for i in range(1, 101):
-    product = 2 * i
-    if product > 100:
-        break
-    result.append(f'2 x {i} = {product}')
-output = '\n'.join(result)
-print(output)
 ```
+```
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. MultiplicationTable.
+       
+       ENVIRONMENT DIVISION.
+       
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  Multiplier    PIC 9(2) VALUE 2.
+       01  Result        PIC 9(3).
+       01  Counter       PIC 9(2) VALUE 1.
+
+       PROCEDURE DIVISION.
+       MAIN-LOGIC.
+           PERFORM UNTIL Counter > 50
+               COMPUTE Result = Multiplier * Counter
+               DISPLAY Multiplier " x " Counter " = " Result
+               ADD 1 TO Counter
+           END-PERFORM.
+           STOP RUN.
 
 Output:
-```
 2 x 1 = 2
 2 x 2 = 4
 2 x 3 = 6
@@ -63,4 +71,3 @@ Output:
 2 x 48 = 96
 2 x 49 = 98
 2 x 50 = 100
-```

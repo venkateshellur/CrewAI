@@ -1,18 +1,23 @@
-Here is the complete content of the Python code along with its output:
+using System;
 
-```python
-result = []
-for i in range(1, 101):
-    product = 2 * i
-    if product > 100:
-        break
-    result.append(f'2 x {i} = {product}')
-output = '\n'.join(result)
-print(output)
-```
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Multiplication table for 2:");
+        for (int i = 1; i <= 100; i++)
+        {
+            int result = 2 * i;
+            if (result > 100)
+            {
+                break;
+            }
+            Console.WriteLine("2 x " + i + " = " + result);
+        }
+    }
+}
 
 Output:
-```
 2 x 1 = 2
 2 x 2 = 4
 2 x 3 = 6
@@ -63,4 +68,3 @@ Output:
 2 x 48 = 96
 2 x 49 = 98
 2 x 50 = 100
-```
