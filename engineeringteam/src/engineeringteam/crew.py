@@ -27,7 +27,7 @@ class Engineeringteam():
             verbose=True,
             allow_code_execution=True,
             code_execution_mode="safe",
-            max_execution_time=240,
+            max_execution_time=600,
             max_retries=3
             )
 

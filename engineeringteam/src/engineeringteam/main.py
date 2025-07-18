@@ -7,9 +7,10 @@ from engineeringteam.crew import Engineeringteam
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
-programmingLanguage='CSharp'
-module_name = "accounts.cs"
+programmingLanguage='python'
+module_name = "accounts"
 class_name = "Account"
+ext = "py"
 
 requirements = """
 A simple account management system for a trading simulation platform.
@@ -33,7 +34,8 @@ def run():
         'requirements': requirements,
         'module_name': module_name,
         'class_name': class_name,
-        'programmingLanguage': programmingLanguage
+        'programmingLanguage': programmingLanguage,
+        'ext': ext
     }
     
     try:
