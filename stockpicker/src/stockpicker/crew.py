@@ -4,6 +4,7 @@ from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
 from pydantic import BaseModel, Field
 from crewai_tools import SerperDevTool
+from .tools.push_tool import PushNotificationTool
 
 class TrendingCompany(BaseModel):
     """ A company that is in the news and attracting attention """
@@ -36,30 +37,26 @@ class Stockpicker():
 
     @agent
     def trending_company_finder(self) -> Agent:
-        return Agent(config=self.agents_config['trending_company_finder'],
-                     tools=[SerperDevTool()], memory=True)
+        return Agent(config=self.agents_config['trending_company_finder'], tools=[SerperDevTool()], memory=True)
     
     @agent
     def financial_researcher(self) -> Agent:
-        return Agent(config=self.agents_config['financial_researcher'], 
-                     tools=[SerperDevTool()])
+        return Agent(config=self.agents_config['financial_researcher'],  tools=[SerperDevTool()])
 
     @agent
     def stock_picker(self) -> Agent:
-        return Agent(config=self.agents_config['stock_picker'], memory=True)
+        return Agent(config=self.agents_config['stock_picker'], tools=[PushNotificationTool()])
     
     @task
     def find_trending_companies(self) -> Task:
         return Task(
-            config=self.tasks_config['find_trending_companies'],
-            output_pydantic=TrendingCompaniesList,
+            config=self.tasks_config['find_trending_companies'], output_pydantic=TrendingCompaniesList,
         )
 
     @task
     def research_trending_companies(self) -> Task:
         return Task(
-            config=self.tasks_config['research_trending_companies'],
-            output_pydantic=TrendingCompaniesResearchList,
+            config=self.tasks_config['research_trending_companies'], output_pydantic=TrendingCompaniesResearchList,
         )
 
     @task
